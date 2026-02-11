@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoboRumble 2.0 - Live Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="hero-background">
+        <div class="abstract-shape shape-1"></div>
+        <div class="abstract-shape shape-2"></div>
+        <div class="abstract-shape shape-3"></div>
+        <div class="abstract-shape shape-4"></div>
+        <div class="abstract-shape shape-5"></div>
+        <div class="abstract-shape shape-6"></div>
+    </div>
+
+    <div class="dashboard-container">
+        <!-- Left Panel - Leaderboard (35%) -->
+        <aside class="leaderboard-panel">
+            <div class="panel-header">
+                <span class="material-icons header-icon">emoji_events</span>
+                <h2 class="panel-title">Leaderboard</h2>
+            </div>
+            <div class="leaderboard-list" id="leaderboardList">
+                <!-- Teams will be inserted here -->
+            </div>
+            <div class="empty-state" id="emptyState">
+                <span class="material-icons">flag</span>
+                <p>No teams yet</p>
+            </div>
+        </aside>
+
+        <!-- Right Panel - Content (65%) -->
+        <main class="content-panel">
+            <!-- Default State -->
+            <div class="state-view default-view" id="defaultView">
+                <div class="logo-container">
+                    <h1 class="main-logo">
+                        <span class="logo-robo">Robo</span><span class="logo-rumble">Rumble</span>
+                        <span class="logo-version">2.0</span>
+                    </h1>
+                    <div class="logo-tagline">Code. Build. and Master the Maze</div>
+                </div>
+            </div>
+
+            <!-- Race State -->
+            <div class="state-view race-view" id="raceView">
+                <div class="round-label" id="roundLabel">Round 1</div>
+                
+                <div class="race-header">
+                    <span class="material-icons race-icon">directions_run</span>
+                    <h2 class="team-racing" id="teamRacing">Team Racing</h2>
+                </div>
+                
+                <div class="timer-container">
+                    <div class="timer-label">Elapsed Time</div>
+                    <div class="timer-display" id="timerDisplay">00:00</div>
+                    <div class="timer-status" id="timerStatus">Running</div>
+                </div>
+
+                <div class="checkpoint-container">
+                    <div class="checkpoint-label">Checkpoints</div>
+                    <div class="checkpoint-indicators">
+                        <div class="checkpoint-item" data-checkpoint="1">
+                            <div class="checkpoint-circle">
+                                <span class="material-icons">flag</span>
+                            </div>
+                            <div class="checkpoint-text">1/4</div>
+                        </div>
+                        <div class="checkpoint-line"></div>
+                        <div class="checkpoint-item" data-checkpoint="2">
+                            <div class="checkpoint-circle">
+                                <span class="material-icons">flag</span>
+                            </div>
+                            <div class="checkpoint-text">2/4</div>
+                        </div>
+                        <div class="checkpoint-line"></div>
+                        <div class="checkpoint-item" data-checkpoint="3">
+                            <div class="checkpoint-circle">
+                                <span class="material-icons">flag</span>
+                            </div>
+                            <div class="checkpoint-text">3/4</div>
+                        </div>
+                        <div class="checkpoint-line"></div>
+                        <div class="checkpoint-item" data-checkpoint="4">
+                            <div class="checkpoint-circle">
+                                <span class="material-icons">emoji_events</span>
+                            </div>
+                            <div class="checkpoint-text">4/4</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span class="material-icons">trending_up</span>
+                        <span class="progress-label" id="progressLabel">0% Complete</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+
+                <div class="completed-time-display" id="completedTimeDisplay">
+                    <span class="material-icons">timer</span>
+                    <span id="completedTimeText">Completed: --:--</span>
+                </div>
+            </div>
+
+            <!-- Paused State -->
+            <div class="state-view paused-view" id="pausedView">
+                <div class="paused-content">
+                    <span class="material-icons paused-icon">pause_circle_filled</span>
+                    <h2 class="paused-title">Race Paused</h2>
+                    <p class="paused-message">Please wait while we resolve the issue</p>
+                    <div class="paused-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard Only State -->
+            <div class="state-view leaderboard-only-view" id="leaderboardOnlyView">
+                <div class="leaderboard-focus">
+                    <div class="focus-header">
+                        <span class="material-icons">emoji_events</span>
+                        <h2>Final Rankings</h2>
+                    </div>
+                    <div class="focus-message">Check out the top performers!</div>
+                </div>
+            </div>
+
+            <!-- Custom Message State -->
+            <div class="state-view custom-view" id="customView">
+                <div class="custom-content">
+                    <span class="material-icons custom-icon">announcement</span>
+                    <h2 class="custom-message" id="customMessage">Custom Message</h2>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
